@@ -6,11 +6,11 @@
 /*   By: rdhaibi <rdhaibi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 15:03:51 by rdhaibi           #+#    #+#             */
-/*   Updated: 2025/02/17 13:44:30 by rdhaibi          ###   ########.fr       */
+/*   Updated: 2025/02/17 19:15:28 by rdhaibi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "0-push_swap.h"
+#include "push_swap.h"
 
 int	sign(const char *str, long int *i)
 {

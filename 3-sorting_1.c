@@ -6,11 +6,11 @@
 /*   By: rdhaibi <rdhaibi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:25:30 by rdhaibi           #+#    #+#             */
-/*   Updated: 2025/02/14 16:14:03 by rdhaibi          ###   ########.fr       */
+/*   Updated: 2025/02/17 19:15:28 by rdhaibi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "0-push_swap.h"
+#include "push_swap.h"
 
 /* Returns the number of nodes in a stack */
 int list_size(t_stack *stack)

@@ -6,11 +6,11 @@
 /*   By: rdhaibi <rdhaibi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:57:31 by rdhaibi           #+#    #+#             */
-/*   Updated: 2025/02/13 17:43:29 by rdhaibi          ###   ########.fr       */
+/*   Updated: 2025/02/17 19:15:28 by rdhaibi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "0-push_swap.h"
+#include "push_swap.h"
 
 t_stack *create_node(int data)
 {

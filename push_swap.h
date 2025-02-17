@@ -6,7 +6,7 @@
 /*   By: rdhaibi <rdhaibi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:03:41 by rdhaibi           #+#    #+#             */
-/*   Updated: 2025/02/17 13:35:39 by rdhaibi          ###   ########.fr       */
+/*   Updated: 2025/02/17 16:47:18 by rdhaibi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 typedef struct stack
 {
     struct stack *previous;
-    int data;
+    int         data;
     struct stack *next;
 }   t_stack;
 

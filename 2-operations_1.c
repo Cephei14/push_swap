@@ -6,11 +6,11 @@
 /*   By: rdhaibi <rdhaibi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 22:58:06 by rdhaibi           #+#    #+#             */
-/*   Updated: 2025/02/14 11:33:53 by rdhaibi          ###   ########.fr       */
+/*   Updated: 2025/02/17 19:15:28 by rdhaibi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "0-push_swap.h"
+#include "push_swap.h"
 
 void	pa(t_stack **stack_a, t_stack **stack_b)
 {
