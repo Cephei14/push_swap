@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/cepheus/Push_SWAP",
-      "program": "/home/cepheus/Push_SWAP/build/Debug/outDebug",
+      "cwd": "/home/cepheus/push_swap2",
+      "program": "/home/cepheus/push_swap2/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
