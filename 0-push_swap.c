@@ -6,7 +6,7 @@
 /*   By: rdhaibi <rdhaibi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:17:57 by rdhaibi           #+#    #+#             */
-/*   Updated: 2025/02/14 17:18:37 by rdhaibi          ###   ########.fr       */
+/*   Updated: 2025/02/17 13:47:29 by rdhaibi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int arg_check(int count, char **av)
                 return (0);   
             j++;
         }
-        if (ft_atoi(av[i]) == INT_MAX || ft_atoi(av[i]) == INT_MIN)
+        long num = ft_atoi(av[i]);
+        if (num == LONG_MAX || num == LONG_MIN || num > INT_MAX || num < INT_MIN)
             return (0);
         i++;
     }
@@ -108,19 +109,11 @@ int main(int ac, char **av)
     int i;
 
     if (ac == 1)
-        return (0);
-    if (ac < 2)
-    {
-        write(2, "Error\n", 6);
-        return (-1);
-    }
+        return (0); // No output for no arguments
+    if (ac == 2 && av[1][0] == '\0')
+        return (0); // No output for empty string argument
     if (ac == 2)
     {
-        if (!av[1][0])
-        {
-            write(2, "Error\n", 6);
-            return (0);
-        }
         args = ft_split(av[1], ' ');
         if (!args)
         {

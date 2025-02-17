@@ -6,7 +6,7 @@
 /*   By: rdhaibi <rdhaibi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 15:03:51 by rdhaibi           #+#    #+#             */
-/*   Updated: 2025/02/17 13:13:25 by rdhaibi          ###   ########.fr       */
+/*   Updated: 2025/02/17 13:44:30 by rdhaibi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	assign(const char *str, long int i, long int l)
 	return (n);
 }
 
-int ft_atoi(const char *str)
+long ft_atoi(const char *str)
 {
     long result = 0;
     int sign = 1;
@@ -94,11 +94,11 @@ int ft_atoi(const char *str)
     }
     while (str[i] >= '0' && str[i] <= '9')
     {
+        if (result > (LONG_MAX - (str[i] - '0')) / 10)
+        {
+            return (sign == 1 ? LONG_MAX : LONG_MIN);
+        }
         result = result * 10 + (str[i] - '0');
-        if (result * sign > INT_MAX)
-            return (INT_MAX);
-        if (result * sign < INT_MIN)
-            return (INT_MIN);
         i++;
     }
     return (result * sign);

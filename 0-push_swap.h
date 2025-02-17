@@ -6,7 +6,7 @@
 /*   By: rdhaibi <rdhaibi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:03:41 by rdhaibi           #+#    #+#             */
-/*   Updated: 2025/02/14 16:45:19 by rdhaibi          ###   ########.fr       */
+/*   Updated: 2025/02/17 13:35:39 by rdhaibi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	sign(const char *str, long int *i);
 int	ft_strcmp(char *s1, char *s2);
 int	lenn(const char *str, long int i);
 int	assign(const char *str, long int i, long int l);
-int	ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 char	*edges(char const *s, char c, int *i);
 int	wordsnum(char const *s, char c);
 char    **ft_split(char const *s, char c);
