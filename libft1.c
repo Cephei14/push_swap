@@ -6,7 +6,7 @@
 /*   By: rdhaibi <rdhaibi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 15:03:51 by rdhaibi           #+#    #+#             */
-/*   Updated: 2025/02/20 16:06:43 by rdhaibi          ###   ########.fr       */
+/*   Updated: 2025/02/20 16:56:54 by rdhaibi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,7 @@ long	ft_atoi(const char *str)
 	{
 		if (result > (LONG_MAX - (str[i] - '0')) / 10)
 		{
-			if (sign == 1)
-				return (LONG_MAX);
-			else
-				return (LONG_MIN);
+			return (sign == 1 ? LONG_MAX : LONG_MIN);
 		}
 		result = result * 10 + (str[i] - '0');
 		i++;
