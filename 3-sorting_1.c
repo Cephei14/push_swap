@@ -6,7 +6,7 @@
 /*   By: rdhaibi <rdhaibi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:25:30 by rdhaibi           #+#    #+#             */
-/*   Updated: 2025/02/20 17:21:04 by rdhaibi          ###   ########.fr       */
+/*   Updated: 2025/02/20 17:41:09 by rdhaibi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	list_size(t_stack *stack)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	while (stack)
@@ -41,7 +41,7 @@ int	get_rank(t_stack *stack, int value)
 
 void	normalize_stack(t_stack *stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 	int		orig;
 
 	tmp = stack;
@@ -69,13 +69,13 @@ int	find_max(t_stack *stack)
 
 int	position_of(t_stack *stack, int value)
 {
-	int pos;
+	int	pos;
 
 	pos = 0;
 	while (stack)
 	{
 		if (stack->data == value)
-			return pos;
+			return (pos);
 		pos++;
 		stack = stack->next;
 	}
