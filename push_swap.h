@@ -6,7 +6,7 @@
 /*   By: rdhaibi <rdhaibi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:03:41 by rdhaibi           #+#    #+#             */
-/*   Updated: 2025/02/17 22:50:22 by rdhaibi          ###   ########.fr       */
+/*   Updated: 2025/02/20 17:55:44 by rdhaibi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ int		find_max(t_stack *stack);
 int		find_min(t_stack *stack);
 void	sort_three(t_stack **a);
 void	sort_small(t_stack **a, t_stack **b);
-void	sort_100_numbers(t_stack **a, t_stack **b);
 int		position_of(t_stack *stack, int value);
-void	print_stack(t_stack *stack);
 int		is_sorted(t_stack *stack);
+
+void sort_large_numbers(t_stack **a, t_stack **b);
 
 #endif

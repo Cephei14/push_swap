@@ -6,7 +6,7 @@
 /*   By: rdhaibi <rdhaibi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:17:57 by rdhaibi           #+#    #+#             */
-/*   Updated: 2025/02/20 17:22:04 by rdhaibi          ###   ########.fr       */
+/*   Updated: 2025/02/20 17:53:18 by rdhaibi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	push_swap(t_stack **a, t_stack **b)
 	if (size <= 10)
 		sort_small(a, b);
 	else
-		sort_100_numbers(a, b);
+		sort_large_numbers(a, b);
 }
 
 int	main(int ac, char **av)
