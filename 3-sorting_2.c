@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
 // Helper function: Returns 1 if there's an element in stack a with data ≤ bound.
 static int exists_in_a(t_stack *a, int bound)
 {
