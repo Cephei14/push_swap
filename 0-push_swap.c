@@ -6,19 +6,17 @@
 /*   By: rdhaibi <rdhaibi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:17:57 by rdhaibi           #+#    #+#             */
-/*   Updated: 2025/02/20 17:53:18 by rdhaibi          ###   ########.fr       */
+/*   Updated: 2025/03/16 15:37:23 by rdhaibi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	arg_check(int count, char **av)
+int	arg_check(int count, char **av, int i)
 {
-	int		i;
 	int		j;
 	long	num;
 
-	i = 0;
 	while (i < count)
 	{
 		j = 0;
@@ -26,21 +24,21 @@ int	arg_check(int count, char **av)
 		{
 			j++;
 			if (av[i][j] == '\0')
-				return (0);
+				return (1);
 		}
 		while (av[i][j])
 		{
 			if (av[i][j] < '0' || av[i][j] > '9')
-				return (0);
+				return (1);
 			j++;
 		}
-		num = ft_atoi(av[i]);
+		num = ft_atoi(av[i], 0, 0);
 		if (num == LONG_MAX || num == LONG_MIN
 			|| num > INT_MAX || num < INT_MIN)
-			return (0);
+			return (1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 int	dupl_check(int count, char **av)
@@ -54,7 +52,7 @@ int	dupl_check(int count, char **av)
 		j = i + 1;
 		while (j < count)
 		{
-			if (ft_atoi(av[i]) == ft_atoi(av[j]))
+			if (ft_atoi(av[i], 0, 0) == ft_atoi(av[j], 0, 0))
 				return (1);
 			j++;
 		}
@@ -63,79 +61,73 @@ int	dupl_check(int count, char **av)
 	return (0);
 }
 
-int	is_sorted(t_stack *stack)
+void	push_swap(char **av, int i, int count, int size)
 {
-	while (stack && stack->next)
+	t_stack	*a;
+	t_stack	*b;
+
+	a = NULL;
+	b = NULL;
+	while (i < count)
 	{
-		if (stack->data > stack->next->data)
-			return (0);
-		stack = stack->next;
+		a = add_node_top(a, ft_atoi(av[i], 0, 0));
+		i++;
 	}
-	return (1);
+	size = list_len(a);
+	assign_ranks(a);
+	if (is_sorted(a))
+	{
+		free_stack(a);
+		return ;
+	}
+	if (size <= 5)
+		sort_small(&a, &b);
+	else if (size <= 100)
+		sort_medium(&a, &b);
+	else
+		radix_sort(&a, &b, list_len(a));
+	free_stack(a);
+	free_stack(b);
 }
 
-void	push_swap(t_stack **a, t_stack **b)
+int	ac_check(int ac, char ***av, int *count)
 {
-	int	size;
-
-	if (is_sorted(*a))
-		return ;
-	size = list_size(*a);
-	if (size <= 10)
-		sort_small(a, b);
+	if (ac == 2)
+	{
+		*av = ft_split((*av)[1], ' ');
+		if (!*av)
+			return (0);
+		*count = 0;
+		while ((*av)[*count])
+			(*count)++;
+		return (1);
+	}
 	else
-		sort_large_numbers(a, b);
+	{
+		*av = &(*av)[1];
+		*count = ac - 1;
+		return (0);
+	}
 }
 
 int	main(int ac, char **av)
 {
-	t_stack	*a;
-	t_stack	*b;
-	char	**args;
-	int		count;
-	int		i;
+	int	count;
+	int	modified_av;
 
-	a = NULL;
-	b = NULL;
-	args = NULL;
 	if (ac == 1)
 		return (0);
-	if (ac == 2 && av[1][0] == '\0')
-		return (0);
-	if (ac == 2)
+	modified_av = ac_check(ac, &av, &count);
+	if (count == 0 || (!modified_av && ac == 2)
+		|| arg_check(count, av, 0) || dupl_check(count, av))
 	{
-		args = ft_split(av[1], ' ');
-		if (!args)
-		{
-			write(2, "Error\n", 6);
-			return (-1);
-		}
-		count = 0;
-		while (args[count])
-			count++;
-	}
-	else
-	{
-		args = &av[1];
-		count = ac - 1;
-	}
-	if (!arg_check(count, args) || dupl_check(count, args))
-	{
+		if (modified_av)
+			free_args(av);
 		write(2, "Error\n", 6);
-		if (ac == 2)
-			free_args(args);
 		return (-1);
 	}
-	i = 0;
-	while (i < count)
-	{
-		a = add_node_bottom(a, ft_atoi(args[i]));
-		i++;
-	}
-	if (ac == 2)
-		free_args(args);
-	push_swap(&a, &b);
-	free_stack(a);
-	free_stack(b);
+	push_swap(av, 0, count, 0);
+	if (modified_av)
+		free_args(av);
 	return (0);
 }

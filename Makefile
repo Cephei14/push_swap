@@ -10,9 +10,10 @@ SRCS = 0-push_swap.c \
 	   2-operations_1.c \
 	   2-operations_2.c \
 	   2-operations_3.c \
-	   3-sort.c \
 	   3-sort_1.c \
-	   3-sort_2.c
+	   3-sort_2.c \
+	   3-sort_3.c \
+	   3-sort_4.c
 
 OBJS = $(SRCS:.c=.o)
 

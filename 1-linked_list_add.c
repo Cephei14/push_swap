@@ -6,7 +6,7 @@
 /*   By: rdhaibi <rdhaibi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:57:31 by rdhaibi           #+#    #+#             */
-/*   Updated: 2025/02/20 21:51:08 by rdhaibi          ###   ########.fr       */
+/*   Updated: 2025/03/10 16:18:30 by rdhaibi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_stack	*create_node(int data)
 	return (p);
 }
 
-t_stack	*add_node_top(t_stack *stack_ptr, int data)
+t_stack	*add_node_bottom(t_stack *stack_ptr, int data)
 {
 	t_stack	*new_node;
 
@@ -39,7 +39,7 @@ t_stack	*add_node_top(t_stack *stack_ptr, int data)
 	return (new_node);
 }
 
-t_stack	*add_node_bottom(t_stack *stack_ptr, int data)
+t_stack	*add_node_top(t_stack *stack_ptr, int data)
 {
 	t_stack	*new_node;
 	t_stack	*ptr;
