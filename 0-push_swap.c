@@ -6,7 +6,7 @@
 /*   By: rdhaibi <rdhaibi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:17:57 by rdhaibi           #+#    #+#             */
-/*   Updated: 2025/03/16 15:37:23 by rdhaibi          ###   ########.fr       */
+/*   Updated: 2025/03/17 16:53:49 by rdhaibi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,12 @@ int	main(int ac, char **av)
 	if (ac == 1)
 		return (0);
 	modified_av = ac_check(ac, &av, &count);
+	if (ac == 2 && count == 0)
+	{
+		if (modified_av)
+			free_args(av);
+		return (0);
+	}
 	if (count == 0 || (!modified_av && ac == 2)
 		|| arg_check(count, av, 0) || dupl_check(count, av))
 	{
