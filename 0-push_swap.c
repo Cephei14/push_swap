@@ -6,7 +6,7 @@
 /*   By: rdhaibi <rdhaibi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:17:57 by rdhaibi           #+#    #+#             */
-/*   Updated: 2025/03/17 16:53:49 by rdhaibi          ###   ########.fr       */
+/*   Updated: 2025/03/18 14:43:27 by rdhaibi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,26 @@ int	dupl_check(int count, char **av)
 	return (0);
 }
 
+int	ac_check(int ac, char ***av, int *count)
+{
+	if (ac == 2)
+	{
+		*av = ft_split((*av)[1], ' ');
+		if (!*av)
+			return (0);
+		*count = 0;
+		while ((*av)[*count])
+			(*count)++;
+		return (1);
+	}
+	else
+	{
+		*av = &(*av)[1];
+		*count = ac - 1;
+		return (0);
+	}
+}
+
 void	push_swap(char **av, int i, int count, int size)
 {
 	t_stack	*a;
@@ -88,26 +108,6 @@ void	push_swap(char **av, int i, int count, int size)
 		radix_sort(&a, &b, list_len(a));
 	free_stack(a);
 	free_stack(b);
-}
-
-int	ac_check(int ac, char ***av, int *count)
-{
-	if (ac == 2)
-	{
-		*av = ft_split((*av)[1], ' ');
-		if (!*av)
-			return (0);
-		*count = 0;
-		while ((*av)[*count])
-			(*count)++;
-		return (1);
-	}
-	else
-	{
-		*av = &(*av)[1];
-		*count = ac - 1;
-		return (0);
-	}
 }
 
 int	main(int ac, char **av)

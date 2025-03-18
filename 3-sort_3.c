@@ -6,11 +6,44 @@
 /*   By: rdhaibi <rdhaibi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 17:25:42 by rdhaibi           #+#    #+#             */
-/*   Updated: 2025/03/17 16:28:39 by rdhaibi          ###   ########.fr       */
+/*   Updated: 2025/03/18 14:48:58 by rdhaibi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_two(t_stack **a)
+{
+	if ((*a)->data > (*a)->next->data)
+		sa(*a);
+}
+
+void	sort_three(t_stack **a)
+{
+	int	first;
+	int	second;
+	int	third;
+
+	first = (*a)->data;
+	second = (*a)->next->data;
+	third = (*a)->next->next->data;
+	if (first > second && second < third && first < third)
+		sa(*a);
+	else if (first > second && second > third)
+	{
+		sa(*a);
+		rra(a);
+	}
+	else if (first > second && second < third)
+		ra(a);
+	else if (first < second && second > third && first > third)
+		rra(a);
+	else if (first < second && second > third && first < third)
+	{
+		sa(*a);
+		ra(a);
+	}
+}
 
 void	sort_small(t_stack **a, t_stack **b)
 {
@@ -30,28 +63,4 @@ void	sort_small(t_stack **a, t_stack **b)
 		while (*b)
 			pa(a, b);
 	}
-}
-
-int	list_len(t_stack *stack)
-{
-	int	len;
-
-	len = 0;
-	while (stack)
-	{
-		len++;
-		stack = stack->next;
-	}
-	return (len);
-}
-
-int	is_sorted(t_stack *stack)
-{
-	while (stack && stack->next)
-	{
-		if (stack->data > stack->next->data)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
 }

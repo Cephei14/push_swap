@@ -6,7 +6,7 @@
 /*   By: rdhaibi <rdhaibi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 17:25:42 by rdhaibi           #+#    #+#             */
-/*   Updated: 2025/03/17 16:29:25 by rdhaibi          ###   ########.fr       */
+/*   Updated: 2025/03/18 14:51:09 by rdhaibi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,6 @@ void	push_chunk_elements(t_stack **a, t_stack **b, int *bounds)
 		if ((*b)->rank > (bounds[0] + bounds[1]) / 2)
 			rb(b);
 		j++;
-	}
-}
-
-void	rotate_to_max(t_stack **b, int pos, int b_size)
-{
-	if (pos < b_size - pos)
-	{
-		while (pos--)
-			rb(b);
-	}
-	else
-	{
-		while (b_size - pos++)
-			rrb(b);
 	}
 }
 
@@ -84,4 +70,33 @@ void	sort_medium(t_stack **a, t_stack **b)
 	if (size > 100)
 		chunk_size = 50;
 	chunk_sort(a, b, chunk_size);
+}
+
+void	radix_sort(t_stack **a, t_stack **b, int size)
+{
+	int	max_num;
+	int	max_bits;
+	int	i;
+	int	j;
+	int	num;
+
+	i = 0;
+	max_num = size - 1;
+	max_bits = get_max_bits(max_num);
+	while (i < max_bits)
+	{
+		j = 0;
+		while (j < size)
+		{
+			num = (*a)->rank;
+			if ((num >> i) & 1)
+				ra(a);
+			else
+				pb(a, b);
+			j++;
+		}
+		while (*b)
+			pa(a, b);
+		i++;
+	}
 }
