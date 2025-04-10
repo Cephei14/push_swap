@@ -6,7 +6,7 @@
 /*   By: rdhaibi <rdhaibi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:57:31 by rdhaibi           #+#    #+#             */
-/*   Updated: 2025/03/10 16:18:30 by rdhaibi          ###   ########.fr       */
+/*   Updated: 2025/03/27 14:40:38 by rdhaibi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,26 @@ t_stack	*add_node_top(t_stack *stack_ptr, int data)
 	ptr->next = new_node;
 	new_node->previous = ptr;
 	return (stack_ptr);
+}
+
+void	assign_ranks(t_stack *a)
+{
+	t_stack	*p;
+	t_stack	*q;
+	int		rank;
+
+	p = a;
+	while (p)
+	{
+		rank = 0;
+		q = a;
+		while (q)
+		{
+			if (q->data < p->data)
+				rank++;
+			q = q->next;
+		}
+		p->rank = rank;
+		p = p->next;
+	}
 }

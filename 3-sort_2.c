@@ -6,38 +6,55 @@
 /*   By: rdhaibi <rdhaibi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 17:25:42 by rdhaibi           #+#    #+#             */
-/*   Updated: 2025/03/18 14:45:54 by rdhaibi          ###   ########.fr       */
+/*   Updated: 2025/03/27 14:41:59 by rdhaibi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_max_bits(int max_num)
+void	sort_three(t_stack **a)
 {
-	int	bits;
+	int	first;
+	int	second;
+	int	third;
 
-	bits = 0;
-	while (max_num)
+	first = (*a)->data;
+	second = (*a)->next->data;
+	third = (*a)->next->next->data;
+	if (first > second && second < third && first < third)
+		sa(*a);
+	else if (first > second && second > third)
 	{
-		bits++;
-		max_num >>= 1;
+		sa(*a);
+		rra(a);
 	}
-	return (bits);
+	else if (first > second && second < third)
+		ra(a);
+	else if (first < second && second > third && first > third)
+		rra(a);
+	else if (first < second && second > third && first < third)
+	{
+		sa(*a);
+		ra(a);
+	}
 }
 
-void	init_chunk_params(t_stack **a, int chunk_size, int *params)
+void	sort_small(t_stack **a, t_stack **b)
 {
-	params[0] = list_len(*a);
-	params[1] = (params[0] + chunk_size - 1) / chunk_size;
-}
+	int	n;
 
-void	set_chunk_bounds(int i, int chunk_size, int size, int *bounds)
-{
-	bounds[0] = i * chunk_size;
-	bounds[1] = (i + 1) * chunk_size - 1;
-	if (bounds[1] >= size)
-		bounds[1] = size - 1;
-	bounds[2] = chunk_size;
-	if (i == bounds[3] - 1)
-		bounds[2] = size - i * chunk_size;
+	n = list_len(*a);
+	if (n == 1)
+		return ;
+	if (n == 2)
+		sa(*a);
+	else if (n == 3)
+		sort_three(a);
+	else if (n == 4 || n == 5)
+	{
+		push_to_b(a, b, &n);
+		sort_three(a);
+		while (*b)
+			pa(a, b);
+	}
 }

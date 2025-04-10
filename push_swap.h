@@ -6,7 +6,7 @@
 /*   By: rdhaibi <rdhaibi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:03:41 by rdhaibi           #+#    #+#             */
-/*   Updated: 2025/03/18 14:42:58 by rdhaibi          ###   ########.fr       */
+/*   Updated: 2025/03/27 12:07:23 by rdhaibi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,23 +66,21 @@ void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
 //sorting
-void	push_swap(char **av, int i, int count, int size);
-void	sort_three(t_stack **a);
-void	sort_two(t_stack **a);
-void	rotate_to_min(t_stack **a, int pos, int n);
-void	push_to_b(t_stack **a, t_stack **b, int *n);
-void	sort_small(t_stack **a, t_stack **b);
 int		list_len(t_stack *stack);
 int		is_sorted(t_stack *stack);
-int		get_max_bits(int num);
-void	radix_sort(t_stack **a, t_stack **b, int size);
+void	push_swap(char **av, int i, int count, int size);
+void	sort_two(t_stack **a);
+void	sort_three(t_stack **a);
+void	sort_small(t_stack **a, t_stack **b);
+void	rotate_to_max(t_stack **b, int pos, int b_size);
+void	rotate_to_min(t_stack **a, int pos, int n);
+void	push_to_b(t_stack **a, t_stack **b, int *n);
 int		find_max_pos(t_stack *stack);
+int		find_min_pos(t_stack *stack, int *pos);
 void	init_chunk_params(t_stack **a, int chunk_size, int *params);
 void	set_chunk_bounds(int i, int chunk_size, int size, int *bounds);
 void	push_chunk_elements(t_stack **a, t_stack **b, int *bounds);
-void	rotate_to_max(t_stack **b, int pos, int b_size);
 void	chunk_sort(t_stack **a, t_stack **b, int chunk_size);
-void	sort_medium(t_stack **a, t_stack **b);
-int		find_min_pos(t_stack *stack, int *pos);
+void	sort_big(t_stack **a, t_stack **b);
 
 #endif

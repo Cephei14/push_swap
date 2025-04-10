@@ -6,7 +6,7 @@
 /*   By: rdhaibi <rdhaibi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:17:57 by rdhaibi           #+#    #+#             */
-/*   Updated: 2025/03/18 14:43:27 by rdhaibi          ###   ########.fr       */
+/*   Updated: 2025/03/27 14:22:17 by rdhaibi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,18 +94,16 @@ void	push_swap(char **av, int i, int count, int size)
 		i++;
 	}
 	size = list_len(a);
-	assign_ranks(a);
 	if (is_sorted(a))
 	{
 		free_stack(a);
 		return ;
 	}
+	assign_ranks(a);
 	if (size <= 5)
 		sort_small(&a, &b);
-	else if (size <= 100)
-		sort_medium(&a, &b);
 	else
-		radix_sort(&a, &b, list_len(a));
+		sort_big(&a, &b);
 	free_stack(a);
 	free_stack(b);
 }
